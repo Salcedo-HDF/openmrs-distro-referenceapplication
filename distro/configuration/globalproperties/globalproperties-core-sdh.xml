@@ -59,7 +59,7 @@
         </globalProperty>
         <globalProperty>
             <property>sms.timeZone</property>
-            <value>tl</value>
+            <value>PHT</value>
         </globalProperty>
     </globalProperties>
 </config>
