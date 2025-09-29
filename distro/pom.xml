@@ -213,24 +213,6 @@
       <version>${event.version}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.openmrs.module</groupId>
-      <artifactId>bedmanagement-omod</artifactId>
-      <version>${bedmanagement.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.openmrs.module</groupId>
-      <artifactId>stockmanagement-omod</artifactId>
-      <version>${stockmanagement.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.openmrs.module</groupId>
-      <artifactId>billing-omod</artifactId>
-      <version>${billing.version}</version>
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
 
   <build>

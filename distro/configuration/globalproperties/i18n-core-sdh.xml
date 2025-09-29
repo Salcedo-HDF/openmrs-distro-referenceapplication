@@ -1,0 +1,8 @@
+<config>
+    <globalProperties>
+        <globalProperty>
+            <property>locale.allowed.list</property>
+            <value>en, es, tl</value>
+        </globalProperty>
+    </globalProperties>
+</config>
