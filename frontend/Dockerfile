@@ -10,8 +10,8 @@ RUN mkdir -p /app
 WORKDIR /app
 
 ARG ENVT
-COPY spa-assemble-config-sdh-$ENVT.json .
-COPY spa-build-config-sdh-$ENVT.json .
+COPY spa-assemble-config-sdh-$ENVT.json ./spa-assemble-config.json
+COPY spa-build-config-sdh-$ENVT.json ./spa-build-config.json
 
 ARG CACHE_BUST
 RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-7.0.0} assemble --manifest --mode config --config spa-assemble-config.json --target ./spa
