@@ -2,20 +2,20 @@
 #--------------------------------------------
 # Dev Stage - Assembles and Builds Frontend
 #--------------------------------------------
-FROM --platform=$BUILDPLATFORM node:18-alpine as dev
+FROM --platform=$BUILDPLATFORM node:22-alpine as dev
 
-ARG APP_SHELL_VERSION=latest
+ARG APP_SHELL_VERSION=8.0.0
 
 RUN mkdir -p /app
 WORKDIR /app
 
 ARG ENVT
-COPY spa-assemble-config-sdh-$ENVT.json .
-COPY spa-build-config-sdh-$ENVT.json .
+COPY spa-assemble-config-sdh-$ENVT.json ./spa-assemble-config.json
+COPY spa-build-config-sdh-$ENVT.json ./spa-build-config.json
 
 ARG CACHE_BUST
-RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-next} assemble --manifest --mode config --config spa-assemble-config-sdh-${ENVT}.json --target ./spa
-RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-next} build --build-config spa-build-config-sdh-${ENVT}.json --target ./spa
+RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-7.0.0} assemble --manifest --mode config --config spa-assemble-config.json --target ./spa
+RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-7.0.0} build --build-config spa-build-config.json --target ./spa
 RUN if [ ! -f ./spa/index.html ]; then echo 'Build failed. Please check the logs above for details. This may have happened because of an update to a library that OpenMRS depends on.'; exit 1; fi
 
 #--------------------------------------------
