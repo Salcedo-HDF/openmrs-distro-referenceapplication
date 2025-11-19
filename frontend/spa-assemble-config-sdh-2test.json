@@ -34,11 +34,11 @@
     "@openmrs/esm-primary-navigation-app": "next",
     "@openmrs/esm-service-queues-app": "next",
     "@openmrs/esm-system-admin-app": "next",
-    "@openmrs/esm-user-onboarding-app": "next"
+    "@openmrs/esm-user-onboarding-app": "next",
+    "@openmrs/esm-stock-management-app": "next",
+    "@openmrs/esm-billing-app": "next"
   },
   "excludedFrontendModules": {
-    "@openmrs/esm-stock-management-app": "next",
-    "@openmrs/esm-billing-app": "next",
     "@openmrs/esm-fast-data-entry-app": "next",
     "@openmrs/esm-bed-management-app": "next",
     "@openmrs/esm-ward-app": "next",
