@@ -7,7 +7,13 @@
   "@openmrs/esm-patient-banner-app": {
     "extensionSlots": {
       "patient-actions-slot": {
-        "remove": ["mark-patient-deceased-button"]
+        "configure": {
+          "mark-patient-deceased-button": {
+            "Display conditions": {
+              "privileges": []
+            }
+          }
+        }
       }
     },
     "contactAttributeTypes": [
@@ -21,8 +27,18 @@
     "showUpcomingAppointments": true,
     "extensionSlots": {
       "action-menu-patient-chart-items-slot": {
-        "remove": ["patient-lists-action-menu"],
-        "order": ["clinical-form-action-menu", "visit-note-nav-action"]
+        "configure": {
+          "patient-lists-action-menu": {
+            "Display conditions": {
+              "privileges": []
+            }
+          },
+          "visit-note-nav-action": {
+            "Display conditions": {
+              "privileges": []
+            }
+          }
+        }
       },
       "patient-chart-dashboard-slot": {
         "order": [
