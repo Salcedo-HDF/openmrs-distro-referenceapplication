@@ -19,8 +19,7 @@
     "showUpcomingAppointments": true,
     "extensionSlots": {
       "action-menu-patient-chart-items-slot": {
-        "remove": ["patient-lists-action-menu"],
-        "order": ["clinical-form-action-menu", "visit-note-nav-action"]
+        "remove": ["visit-note-nav-button"]
       },
       "patient-chart-dashboard-slot": {
         "order": [
