@@ -18,20 +18,7 @@
   "@openmrs/esm-patient-chart-app": {
     "showUpcomingAppointments": true,
     "extensionSlots": {
-      "action-menu-patient-chart-items-slot": {
-        "configure": {
-          "patient-lists-action-menu": {
-            "Display conditions": {
-              "privileges": []
-            }
-          },
-          "visit-note-nav-action": {
-            "Display conditions": {
-              "privileges": []
-            }
-          }
-        }
-      },
+      "action-menu-patient-chart-items-slot": {},
       "patient-chart-dashboard-slot": {
         "order": [
           "charts-summary-dashboard",
