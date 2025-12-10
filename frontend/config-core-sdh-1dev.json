@@ -134,5 +134,23 @@
     "preferredCalendar": {
       "en": "gregory"
     }
+  },
+  "@openmrs/esm-home-app": {
+    "defaultDashboardPerRole": {
+      "System Developer": "appointments",
+      "SDH: Clerk": "appointments",
+      "SDH: Doctor": "service-queues",
+      "SDH: Imaging Technician": "active-visits",
+      "SDH: Lab Technician": "appointments",
+      "SDH: Midwife": "service-queues",
+      "SDH: Nurse": "appointments",
+      "SDH: Pharmacist": "active-visits",
+      "default": "dashboard"
+    },
+    "extensionSlots": {
+      "homepage-dashboard-slot": {
+        "add": ["active-visits-widget"]
+      }
+    }
   }
 }

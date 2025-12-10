@@ -134,5 +134,12 @@
     "preferredCalendar": {
       "en": "gregory"
     }
+  },
+  "@openmrs/esm-home-app": {
+    "extensionSlots": {
+      "homepage-dashboard-slot": {
+        "add": ["active-visits-widget"]
+      }
+    }
   }
 }
