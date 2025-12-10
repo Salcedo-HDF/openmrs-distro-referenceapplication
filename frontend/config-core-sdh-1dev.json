@@ -143,17 +143,13 @@
       "SDH: Imaging Technician": "active-visits",
       "SDH: Lab Technician": "appointments",
       "SDH: Midwife": "service-queues",
-      "SDH: Nurse": "active-visits",
+      "SDH: Nurse": "appointments",
       "SDH: Pharmacist": "active-visits",
       "default": "dashboard"
     },
     "extensionSlots": {
       "homepage-dashboard-slot": {
-        "add": [
-          "active-visits-widget",
-          "service-queues-widget",
-          "appointments-widget"
-        ]
+        "add": ["active-visits-widget"]
       }
     }
   }
