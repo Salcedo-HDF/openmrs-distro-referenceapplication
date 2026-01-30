@@ -34,10 +34,10 @@
     "@openmrs/esm-primary-navigation-app": "latest",
     "@openmrs/esm-service-queues-app": "latest",
     "@openmrs/esm-system-admin-app": "latest",
-    "@openmrs/esm-user-onboarding-app": "latest"
+    "@openmrs/esm-user-onboarding-app": "latest",
+    "@openmrs/esm-fast-data-entry-app": "latest"
   },
   "excludedFrontendModules": {
-    "@openmrs/esm-fast-data-entry-app": "latest",
     "@openmrs/esm-bed-management-app": "latest",
     "@openmrs/esm-ward-app": "latest",
     "@openmrs/esm-appointments-app": "latest",
