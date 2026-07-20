@@ -3,14 +3,14 @@
 # Dev Stage - Assembles and Builds Frontend
 #--------------------------------------------
 FROM --platform=$BUILDPLATFORM node:22-alpine as dev
-FROM --platform=$BUILDPLATFORM node:22-alpine as dev
+#FROM --platform=$BUILDPLATFORM node:22-alpine as dev
 
 ARG APP_SHELL_VERSION=10.0.0
 
 RUN mkdir -p /app
 WORKDIR /app
 
-ARG ENVT
+ARG ENVT=1dev
 COPY spa-assemble-config-sdh-$ENVT.json ./spa-assemble-config.json
 COPY spa-build-config-sdh-$ENVT.json ./spa-build-config.json
 
@@ -39,7 +39,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=dev /app/spa /usr/share/nginx/html
 # COPY config-core_demo.json /usr/share/nginx/html
-ARG ENVT
+ARG ENVT=1dev
 COPY config-core-sdh-$ENVT.json /usr/share/nginx/html
 
 CMD ["/usr/local/bin/startup.sh"]
