@@ -1,9 +1,7 @@
-version: "3.7"
-
 services:
   gateway:
     build:
-      context: ../gateway
+      context: ../../gateway
     container_name: gateway
     restart: "unless-stopped"
     depends_on:
@@ -14,8 +12,10 @@ services:
 
   frontend:
     build:
-      context: ../frontend
+      context: ../../frontend
     container_name: frontend
+    args:
+    ENVT: ${ENVT:-1dev}
     restart: "unless-stopped"
     environment:
       SPA_PATH: /openmrs/spa
@@ -30,7 +30,7 @@ services:
 
   backend:
     build:
-      context: ../
+      context: ../../
     container_name: backend
     depends_on:
       - db
