@@ -4,24 +4,23 @@
 #--------------------------------------------
 FROM --platform=$BUILDPLATFORM node:22-alpine as dev
 
-ARG APP_SHELL_VERSION=8.0.0
+ARG APP_SHELL_VERSION=10.0.0
 
 RUN mkdir -p /app
 WORKDIR /app
 
-ARG ENVT
-COPY spa-assemble-config-sdh-$ENVT.json ./spa-assemble-config.json
-COPY spa-build-config-sdh-$ENVT.json ./spa-build-config.json
+COPY spa-assemble-config.json .
+COPY spa-build-config.json .
 
 ARG CACHE_BUST
-RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-7.0.0} assemble --manifest --mode config --config spa-assemble-config.json --target ./spa
-RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-7.0.0} build --build-config spa-build-config.json --target ./spa
+RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-10.0.0} assemble --manifest --mode config --config spa-assemble-config.json --target ./spa
+RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-10.0.0} build --build-config spa-build-config.json --target ./spa
 RUN if [ ! -f ./spa/index.html ]; then echo 'Build failed. Please check the logs above for details. This may have happened because of an update to a library that OpenMRS depends on.'; exit 1; fi
 
 #--------------------------------------------
 # Runtime Stage - Published Image
 #--------------------------------------------
-FROM nginx:1.25-alpine
+FROM nginx:1.31-alpine
 
 RUN apk update && \
     apk upgrade && \
@@ -37,8 +36,6 @@ RUN chmod +x /usr/local/bin/startup.sh
 COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=dev /app/spa /usr/share/nginx/html
-# COPY config-core_demo.json /usr/share/nginx/html
-ARG ENVT
-COPY config-core-sdh-$ENVT.json /usr/share/nginx/html
+COPY config-core_demo.json /usr/share/nginx/html
 
 CMD ["/usr/local/bin/startup.sh"]
