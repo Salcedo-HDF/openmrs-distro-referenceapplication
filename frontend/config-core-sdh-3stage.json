@@ -137,5 +137,15 @@
     "preferredCalendar": {
       "en": "gregory"
     }
+  },
+  "@openmrs/esm-home-app": {
+    "extensionSlots": {
+      "homepage-dashboard-slot": {
+        "add": ["active-visits-widget"]
+      }
+    }
+  },
+  "@openmrs/esm-laboratory-app": {
+    "labTableColumns": ["name", "patientId", "urgency", "age", "sex", "totalOrders", "action"]
   }
 }
