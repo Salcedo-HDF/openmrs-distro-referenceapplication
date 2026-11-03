@@ -5,12 +5,13 @@
 FROM --platform=$BUILDPLATFORM node:22-alpine as dev
 
 ARG APP_SHELL_VERSION=10.0.0
+ARG ENVT=1dev
 
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY spa-assemble-config.json .
-COPY spa-build-config.json .
+COPY spa-assemble-config-sdh-$ENVT.json ./spa-assemble-config.json
+COPY spa-build-config-sdh-$ENVT.json ./spa-build-config.json
 
 ARG CACHE_BUST
 RUN npx --legacy-peer-deps openmrs@${APP_SHELL_VERSION:-10.0.0} assemble --manifest --mode config --config spa-assemble-config.json --target ./spa
@@ -21,6 +22,8 @@ RUN if [ ! -f ./spa/index.html ]; then echo 'Build failed. Please check the logs
 # Runtime Stage - Published Image
 #--------------------------------------------
 FROM nginx:1.31-alpine
+
+ARG ENVT=1dev
 
 RUN apk update && \
     apk upgrade && \
@@ -36,6 +39,6 @@ RUN chmod +x /usr/local/bin/startup.sh
 COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=dev /app/spa /usr/share/nginx/html
-COPY config-core_demo.json /usr/share/nginx/html
+COPY config-core-sdh-$ENVT.json /usr/share/nginx/html
 
 CMD ["/usr/local/bin/startup.sh"]
