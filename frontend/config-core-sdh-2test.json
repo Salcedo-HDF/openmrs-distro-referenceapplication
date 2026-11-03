@@ -141,5 +141,8 @@
         "add": ["active-visits-widget"]
       }
     }
+  },
+  "@openmrs/esm-laboratory-app": {
+    "labTableColumns": ["name", "patientId", "urgency", "age", "sex", "totalOrders", "action"]
   }
 }
