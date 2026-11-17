@@ -30,6 +30,8 @@ services:
       - backend
     build:
       context: ./frontend
+      args:
+        ENVT: ${ENVT}
 
   backend:
     image: openmrs/openmrs-reference-application-3-backend:${BACKEND_TAG:-qa}
