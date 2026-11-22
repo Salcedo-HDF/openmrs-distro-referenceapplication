@@ -6,9 +6,7 @@
   },
   "@openmrs/esm-patient-banner-app": {
     "extensionSlots": {
-      "patient-actions-slot": {
-        "remove": ["mark-patient-deceased-button"]
-      }
+      "patient-actions-slot": {}
     },
     "contactAttributeTypes": [
       "14d4f066-15f5-102d-96e4-000c29c2a5d7",
@@ -21,8 +19,7 @@
     "showUpcomingAppointments": true,
     "extensionSlots": {
       "action-menu-patient-chart-items-slot": {
-        "remove": ["patient-lists-action-menu"],
-        "order": ["clinical-form-action-menu", "visit-note-nav-action"]
+        "remove": ["visit-note-nav-button"]
       },
       "patient-chart-dashboard-slot": {
         "order": [
@@ -37,48 +34,8 @@
           "immunization-summary-dashboard",
           "attachments-results-summary-dashboard",
           "programs-summary-dashboard"
-        ],
-        "add": [
-          "nav-group#Surgery"
-        ],
-        "configure": {
-          "nav-group#Surgery": {
-            "title": "Surgery",
-            "slotName": "surgery-nav-group-slot"
-          }
-        }
-      },
-      "surgery-nav-group-slot": {
-        "add": [
-          "conditions-summary-dashboard",
-          "allergies-summary-dashboard"
-        ],
-        "order": [
-          "conditions-summary-dashboard",
-          "allergies-summary-dashboard"
         ]
-      },
-      "patient-chart-allergies-dashboard-slot": {
-        "add": [
-          "obs-by-encounter-widget#Surgery"
-        ],
-        "configure": {
-          "obs-by-encounter-widget#Surgery": {
-            "title": "Hemoglobin Result",
-            "resultName": "Surgery",
-            "data": [
-              {
-                "concept": "21AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                "label": "hemoglobin",
-                "color": "green"
-              }
-            ],
-            "table": {
-              "pageSize": 20
-            }
-          }
-        }
-      }   
+      }
     }
   },
   "@openmrs/esm-patient-registration-app": {
@@ -177,5 +134,27 @@
     "preferredCalendar": {
       "en": "gregory"
     }
+  },
+  "@openmrs/esm-home-app": {
+    "defaultDashboardPerRole": {
+      "System Developer": "appointments",
+      "SDH: Clerk": "appointments",
+      "SDH: Doctor": "service-queues",
+      "SDH: Imaging Technician": "active-visits",
+      "SDH: Lab Technician": "appointments",
+      "SDH: Midwife": "service-queues",
+      "SDH: Nurse": "appointments",
+      "SDH: Pharmacist": "active-visits",
+      "default": "dashboard"
+    },
+    "extensionSlots": {
+      "homepage-dashboard-slot": {
+        "add": ["active-visits-widget"]
+      }
+    }
+  },
+  "@openmrs/esm-laboratory-app": {
+    "labTableColumns": ["name", "patientId", "urgency", "age", "sex", "totalOrders", "action"]
   }
 }
+
